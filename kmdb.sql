@@ -95,6 +95,9 @@
 
 -- Drop existing tables, so you'll start fresh each time this script is run.
 -- TODO!
+DROP TABLE IF EXISTS Movies;
+DROP TABLE IF EXISTS Actor_Agent;
+DROP TABLE IF EXISTS Movie_Cast;
 
 -- Create new tables, according to your domain model
 -- TODO!
@@ -159,3 +162,5 @@
 -- Represented by agent
 -- ====================
 -- Christian Bale
+
+
