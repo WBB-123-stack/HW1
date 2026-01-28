@@ -101,10 +101,39 @@ DROP TABLE IF EXISTS Movie_Cast;
 
 -- Create new tables, according to your domain model
 -- TODO!
+CREATE TABLE Movies (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  movie_title TEXT,
+  year_released INTEGER,
+  MPAA_rating INTEGER,
+  studio TEXT
+);
+
+CREATE TABLE Actor_Agent (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  actor_name TEXT,
+  agent TEXT,
+);
+
+CREATE TABLE Movie_Cast (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  actor_name TEXT,
+  character_played TEXT,
+  movie_ID INTEGER,
+);
+
+
 
 -- Insert data into your database that reflects the sample data shown above
 -- Use hard-coded foreign key IDs when necessary
 -- TODO!
+
+INSERT INTO movies (movie_title, year_released, MPAA_rating, studio) VALUES
+('Batman Begins', '2005', 'PG-13','Warner Bros.'),
+('The Dark Knight', '2008', 'PG-13','Warner Bros.'),
+('The Dark Knight Rises', '2013', 'PG-13','Warner Bros.'),
+
+
 
 -- Prints a header for the movies output
 .print "Movies"
@@ -113,6 +142,8 @@ DROP TABLE IF EXISTS Movie_Cast;
 
 -- ***TODO!***
 -- The SQL statement for the movies output goes here.
+
+SELECT movie_title, year_released, MPAA_rating, studio FROM movies
 
 -- Example output:
 -- Movies
@@ -129,6 +160,9 @@ DROP TABLE IF EXISTS Movie_Cast;
 
 -- ***TODO!***
 -- The SQL statement for the cast output goes here.
+
+
+
 
 -- Example output:
 -- Top Cast
