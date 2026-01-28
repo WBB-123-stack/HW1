@@ -112,16 +112,15 @@ CREATE TABLE Movies (
 CREATE TABLE Actor_Agent (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   actor_name TEXT,
-  agent TEXT,
+  agent TEXT
 );
 
 CREATE TABLE Movie_Cast (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   actor_name TEXT,
   character_played TEXT,
-  movie_title TEXT,
+  movie_title TEXT
 );
-
 
 
 -- Insert data into your database that reflects the sample data shown above
@@ -153,7 +152,7 @@ INSERT INTO Movie_Cast (actor_name, character_played, movie_title) VALUES
 -- ***TODO!***
 -- The SQL statement for the movies output goes here.
 
-SELECT movie_title, year_released, MPAA_rating, studio FROM Movie
+SELECT movie_title, year_released, MPAA_rating, studio FROM Movies;
 
 -- Example output:
 -- Movies
@@ -166,12 +165,13 @@ SELECT movie_title, year_released, MPAA_rating, studio FROM Movie
 .print ""
 .print "Top Cast"
 .print "========"
+.print "**note - I kept this table pretty small for example data, didn't copy and paste all actors in"
 .print ""
 
 -- ***TODO!***
 -- The SQL statement for the cast output goes here.
 
-SELECT movie_title, actor_name, character_played FROM Movie_Cast
+SELECT movie_title, actor_name, character_played FROM Movie_Cast;
 
 
 -- Example output:
@@ -202,7 +202,7 @@ SELECT movie_title, actor_name, character_played FROM Movie_Cast
 -- ***TODO!***
 -- The SQL statement for the represented actor(s) output goes here.
 
-SELECT actor_name FROM Actor_Agent WHERE agent = 'Ron Pepperfield'
+SELECT actor_name FROM Actor_Agent WHERE agent = 'Ron Pepperfield';
 
 -- Example output:
 -- Represented by agent
