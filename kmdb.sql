@@ -119,7 +119,7 @@ CREATE TABLE Movie_Cast (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   actor_name TEXT,
   character_played TEXT,
-  movie_ID INTEGER,
+  movie_title TEXT,
 );
 
 
@@ -128,10 +128,20 @@ CREATE TABLE Movie_Cast (
 -- Use hard-coded foreign key IDs when necessary
 -- TODO!
 
-INSERT INTO movies (movie_title, year_released, MPAA_rating, studio) VALUES
+INSERT INTO Movies (movie_title, year_released, MPAA_rating, studio) VALUES
 ('Batman Begins', '2005', 'PG-13','Warner Bros.'),
 ('The Dark Knight', '2008', 'PG-13','Warner Bros.'),
-('The Dark Knight Rises', '2013', 'PG-13','Warner Bros.'),
+('The Dark Knight Rises', '2013', 'PG-13','Warner Bros.');
+
+INSERT INTO Actor_Agent (actor_name, agent) VALUES
+('Christian Bale', 'Ron Pepperfield'),
+('Michael Cain', 'Ron Pepperfield'),
+('Liam Neeson', 'Alford Hackson');
+
+INSERT INTO Movie_Cast (actor_name, character_played, movie_title) VALUES
+('Christian Bale', 'Bruce Wayne','Batman Begins'),
+('Michael Caine', 'Alfred','Batman Begins'),
+('Christian Bale', 'Bruce Wayne','The Dark Knight');
 
 
 
@@ -143,7 +153,7 @@ INSERT INTO movies (movie_title, year_released, MPAA_rating, studio) VALUES
 -- ***TODO!***
 -- The SQL statement for the movies output goes here.
 
-SELECT movie_title, year_released, MPAA_rating, studio FROM movies
+SELECT movie_title, year_released, MPAA_rating, studio FROM Movie
 
 -- Example output:
 -- Movies
@@ -161,7 +171,7 @@ SELECT movie_title, year_released, MPAA_rating, studio FROM movies
 -- ***TODO!***
 -- The SQL statement for the cast output goes here.
 
-
+SELECT movie_title, actor_name, character_played FROM Movie_Cast
 
 
 -- Example output:
@@ -191,6 +201,8 @@ SELECT movie_title, year_released, MPAA_rating, studio FROM movies
 
 -- ***TODO!***
 -- The SQL statement for the represented actor(s) output goes here.
+
+SELECT actor_name FROM Actor_Agent WHERE agent = 'Ron Pepperfield'
 
 -- Example output:
 -- Represented by agent
